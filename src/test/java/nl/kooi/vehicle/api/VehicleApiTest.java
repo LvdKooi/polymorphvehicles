@@ -39,7 +39,7 @@ class VehicleApiTest {
     private MockMvc mockMvc;
 
     @Test
-    void testGetEndpoint() throws Exception {
+    void testGetEndpoint_withoutQueryParam() throws Exception {
         when(vehicleService.getAllVehicles())
                 .thenReturn(List.of(new Vehicle(1L, CAR, "Volkswagen", "Golf"),
                         new Vehicle(2L, BUS, "DAF", "GTX760")));
@@ -66,6 +66,32 @@ class VehicleApiTest {
         assertThat(resultAsDto.get(1).type()).isEqualTo(BUS);
 
         verify(vehicleService, times(1)).getAllVehicles();
+    }
+
+    @Test
+    void testGetEndpoint_withQueryParam() throws Exception {
+        when(vehicleService.getAllVehiclesByType(CAR))
+                .thenReturn(List.of(new Vehicle(1L, CAR, "Volkswagen", "Golf")));
+
+
+        var result = mockMvc.perform(get("/vehicles?type=CAR"))
+                .andExpect(status().isOk())
+                .andReturn().getResponse().getContentAsString();
+
+        var typeRef = new TypeReference<List<VehicleDTO>>() {
+        };
+
+        var resultAsDto = objectMapper.readValue(result, typeRef);
+
+        assertThat(resultAsDto).isNotNull();
+        assertThat(resultAsDto).hasSize(1);
+        assertThat(resultAsDto.get(0).id()).isEqualTo(1L);
+        assertThat(resultAsDto.get(0).brand()).isEqualTo("Volkswagen");
+        assertThat(resultAsDto.get(0).model()).isEqualTo("Golf");
+        assertThat(resultAsDto.get(0).type()).isEqualTo(CAR);
+
+
+        verify(vehicleService, times(1)).getAllVehiclesByType(eq(CAR));
     }
 
     @Test
