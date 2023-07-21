@@ -1,0 +1,20 @@
+create table BUS_ENTITY
+(
+    ID                      BIGINT,
+    BUS_TYPE                VARCHAR(10) NOT NULL,
+    LITERS_LUGGAGE_CAPACITY BIGINT
+);
+
+ALTER TABLE BUS_ENTITY
+    ADD CONSTRAINT bus_vehicle_id_fk FOREIGN KEY (id) REFERENCES VEHICLE_ENTITY(id);
+
+
+create table CAR_ENTITY
+(
+    ID      BIGINT,
+    BODY_STYLE      VARCHAR(20) NOT NULL,
+    NUMBER_OF_DOORS BIGINT
+);
+
+ALTER TABLE CAR_ENTITY
+    ADD CONSTRAINT car_vehicle_id_fk FOREIGN KEY (id) REFERENCES VEHICLE_ENTITY (id);

@@ -1,18 +1,15 @@
 package nl.kooi.vehicle.infrastructure.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 import nl.kooi.vehicle.enums.VehicleType;
 
 @Entity
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
-public class VehicleEntity {
+@Inheritance(strategy = InheritanceType.JOINED)
+public abstract class VehicleEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

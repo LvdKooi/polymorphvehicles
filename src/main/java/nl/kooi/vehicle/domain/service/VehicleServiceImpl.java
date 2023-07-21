@@ -21,7 +21,7 @@ public class VehicleServiceImpl implements VehicleService {
 
     @Override
     public Vehicle saveVehicle(Vehicle vehicle) {
-        return mapper.map(repository.save(mapper.mapToEntity(vehicle)));
+        return mapper.map(repository.save(mapper.mapToVehicleEntity(vehicle)));
     }
 
     @Override
@@ -34,8 +34,8 @@ public class VehicleServiceImpl implements VehicleService {
 
     @Override
     public Vehicle updateVehicle(Vehicle vehicle) {
-        findVehicleById(vehicle.id());
-        return mapper.map(repository.save(mapper.mapToEntity(vehicle)));
+        findVehicleById(vehicle.getId());
+        return mapper.map(repository.save(mapper.mapToVehicleEntity(vehicle)));
     }
 
     @Override

@@ -32,7 +32,6 @@ public class VehicleApi {
 
     @PostMapping
     public VehicleDTO saveVehicle(@RequestBody VehicleDTO dto) {
-        log.info("Received vehicle: {}", dto);
         return mapper.map(service.saveVehicle(mapper.map(dto)));
     }
 

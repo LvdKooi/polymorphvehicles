@@ -1,10 +1,14 @@
 package nl.kooi.vehicle.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
 import nl.kooi.vehicle.enums.VehicleType;
 
-public record Vehicle(Long id,
-                      VehicleType type,
-                      String brand,
-                      String model) {
-
+@Data
+@AllArgsConstructor
+public abstract class Vehicle {
+    private Long id;
+    private VehicleType type;
+    private String brand;
+    private String model;
 }
