@@ -9,11 +9,7 @@ import nl.kooi.vehicle.enums.VehicleType;
 @Getter
 @Setter
 @Inheritance(strategy = InheritanceType.JOINED)
-public abstract class VehicleEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
+public abstract class VehicleEntity extends BaseEntity {
     @Enumerated(value = EnumType.STRING)
     private VehicleType vehicleType;
 
