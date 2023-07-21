@@ -1,9 +1,14 @@
 package nl.kooi.vehicle.api.dto;
 
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import nl.kooi.vehicle.enums.VehicleType;
 
-public record VehicleDTO(Long id,
-                         VehicleType type,
-                         String brand,
-                         String model) {
+@RequiredArgsConstructor
+@Getter
+public class VehicleDTO {
+    private final Long id;
+    private final VehicleType type;
+    private final String brand;
+    private final String model;
 }

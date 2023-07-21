@@ -56,14 +56,14 @@ class VehicleApiTest {
 
         assertThat(resultAsDto).isNotNull();
         assertThat(resultAsDto).hasSize(2);
-        assertThat(resultAsDto.get(0).id()).isEqualTo(1L);
-        assertThat(resultAsDto.get(0).brand()).isEqualTo("Volkswagen");
-        assertThat(resultAsDto.get(0).model()).isEqualTo("Golf");
-        assertThat(resultAsDto.get(0).type()).isEqualTo(CAR);
-        assertThat(resultAsDto.get(1).id()).isEqualTo(2L);
-        assertThat(resultAsDto.get(1).brand()).isEqualTo("DAF");
-        assertThat(resultAsDto.get(1).model()).isEqualTo("GTX760");
-        assertThat(resultAsDto.get(1).type()).isEqualTo(BUS);
+        assertThat(resultAsDto.get(0).getId()).isEqualTo(1L);
+        assertThat(resultAsDto.get(0).getBrand()).isEqualTo("Volkswagen");
+        assertThat(resultAsDto.get(0).getModel()).isEqualTo("Golf");
+        assertThat(resultAsDto.get(0).getType()).isEqualTo(CAR);
+        assertThat(resultAsDto.get(1).getId()).isEqualTo(2L);
+        assertThat(resultAsDto.get(1).getBrand()).isEqualTo("DAF");
+        assertThat(resultAsDto.get(1).getModel()).isEqualTo("GTX760");
+        assertThat(resultAsDto.get(1).getType()).isEqualTo(BUS);
 
         verify(vehicleService, times(1)).getAllVehicles();
     }
@@ -85,10 +85,10 @@ class VehicleApiTest {
 
         assertThat(resultAsDto).isNotNull();
         assertThat(resultAsDto).hasSize(1);
-        assertThat(resultAsDto.get(0).id()).isEqualTo(1L);
-        assertThat(resultAsDto.get(0).brand()).isEqualTo("Volkswagen");
-        assertThat(resultAsDto.get(0).model()).isEqualTo("Golf");
-        assertThat(resultAsDto.get(0).type()).isEqualTo(CAR);
+        assertThat(resultAsDto.get(0).getId()).isEqualTo(1L);
+        assertThat(resultAsDto.get(0).getBrand()).isEqualTo("Volkswagen");
+        assertThat(resultAsDto.get(0).getModel()).isEqualTo("Golf");
+        assertThat(resultAsDto.get(0).getType()).isEqualTo(CAR);
 
 
         verify(vehicleService, times(1)).getAllVehiclesByType(eq(CAR));
@@ -107,10 +107,10 @@ class VehicleApiTest {
         var resultAsDto = objectMapper.readValue(result, VehicleDTO.class);
 
         assertThat(resultAsDto).isNotNull();
-        assertThat(resultAsDto.id()).isEqualTo(1L);
-        assertThat(resultAsDto.brand()).isEqualTo("Volkswagen");
-        assertThat(resultAsDto.model()).isEqualTo("Golf");
-        assertThat(resultAsDto.type()).isEqualTo(CAR);
+        assertThat(resultAsDto.getId()).isEqualTo(1L);
+        assertThat(resultAsDto.getBrand()).isEqualTo("Volkswagen");
+        assertThat(resultAsDto.getModel()).isEqualTo("Golf");
+        assertThat(resultAsDto.getType()).isEqualTo(CAR);
 
         verify(vehicleService, times(1)).findVehicleById(1L);
     }
@@ -149,10 +149,10 @@ class VehicleApiTest {
         var resultAsDto = objectMapper.readValue(result, VehicleDTO.class);
 
         assertThat(resultAsDto).isNotNull();
-        assertThat(resultAsDto.id()).isEqualTo(1L);
-        assertThat(resultAsDto.brand()).isEqualTo("Volkswagen");
-        assertThat(resultAsDto.model()).isEqualTo("Golf");
-        assertThat(resultAsDto.type()).isEqualTo(CAR);
+        assertThat(resultAsDto.getId()).isEqualTo(1L);
+        assertThat(resultAsDto.getBrand()).isEqualTo("Volkswagen");
+        assertThat(resultAsDto.getModel()).isEqualTo("Golf");
+        assertThat(resultAsDto.getType()).isEqualTo(CAR);
 
         verify(vehicleService, times(1)).updateVehicle(any(Vehicle.class));
     }
@@ -172,10 +172,10 @@ class VehicleApiTest {
         var resultAsDto = objectMapper.readValue(result, VehicleDTO.class);
 
         assertThat(resultAsDto).isNotNull();
-        assertThat(resultAsDto.id()).isEqualTo(1L);
-        assertThat(resultAsDto.brand()).isEqualTo("Volkswagen");
-        assertThat(resultAsDto.model()).isEqualTo("Golf");
-        assertThat(resultAsDto.type()).isEqualTo(CAR);
+        assertThat(resultAsDto.getId()).isEqualTo(1L);
+        assertThat(resultAsDto.getBrand()).isEqualTo("Volkswagen");
+        assertThat(resultAsDto.getModel()).isEqualTo("Golf");
+        assertThat(resultAsDto.getType()).isEqualTo(CAR);
 
         verify(vehicleService, times(1)).saveVehicle(any(Vehicle.class));
     }
