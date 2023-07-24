@@ -4,11 +4,13 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import nl.kooi.vehicle.enums.VehicleType;
+import org.hibernate.annotations.DiscriminatorFormula;
 
 @Entity
 @Getter
 @Setter
-@Inheritance(strategy = InheritanceType.JOINED)
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorFormula("vehicle_type")
 public abstract class VehicleEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -11,6 +11,7 @@ import nl.kooi.vehicle.enums.VehicleType;
 @Entity
 @Getter
 @Setter
+@DiscriminatorValue("CAR")
 public class CarEntity extends VehicleEntity {
     private int numberOfDoors;
     @Enumerated(EnumType.STRING)

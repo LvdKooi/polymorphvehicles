@@ -1,5 +1,6 @@
 package nl.kooi.vehicle.infrastructure.entity;
 
+import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -15,6 +16,7 @@ import nl.kooi.vehicle.enums.VehicleType;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@DiscriminatorValue("BUS")
 public class BusEntity extends VehicleEntity {
     @Enumerated(EnumType.STRING)
     private BusType busType;
