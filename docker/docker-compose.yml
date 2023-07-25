@@ -1,0 +1,16 @@
+version: '3.1'
+services:
+  db:
+    image: mysql:latest
+    platform: linux/amd64
+    restart: always
+    environment:
+      MYSQL_DATABASE: vehicle
+      MYSQL_USER: vehicle
+      MYSQL_PASSWORD: vehicle
+      MYSQL_ROOT_PASSWORD: root_pw
+      MYSQL_ROOT_HOST: '%'
+    ports:
+      - "3306:3306"
+    volumes:
+      - .:/data/mysql
