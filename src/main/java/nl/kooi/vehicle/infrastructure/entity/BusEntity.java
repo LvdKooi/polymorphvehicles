@@ -19,5 +19,4 @@ public class BusEntity extends VehicleEntity {
     @Enumerated(EnumType.STRING)
     private BusType busType;
     private int litersLuggageCapacity;
-
 }
