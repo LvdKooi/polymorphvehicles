@@ -1,11 +1,12 @@
-alter table VEHICLE_ENTITY rename to BUS_ENTITY;
+alter table vehicle_entity
+    rename to bus_entity;
 
-alter table BUS_ENTITY
+alter table bus_entity
     add column BUS_TYPE VARCHAR(10) NOT NULL;
-alter table BUS_ENTITY
+alter table bus_entity
     add column LITERS_LUGGAGE_CAPACITY BIGINT;
 
-create table CAR_ENTITY
+create table car_entity
 (
     ID              BIGINT,
     VEHICLE_TYPE    VARCHAR(10) NOT NULL,

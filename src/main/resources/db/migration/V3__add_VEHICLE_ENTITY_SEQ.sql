@@ -1,1 +1,6 @@
-CREATE SEQUENCE VEHICLE_ENTITY_SEQ START WITH 1 INCREMENT BY 50;
+create table vehicle_entity_seq
+(
+    NEXT_VAL BIGINT PRIMARY KEY auto_increment
+);
+
+INSERT into vehicle_entity_seq values (1)
