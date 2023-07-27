@@ -1,0 +1,10 @@
+spring:
+  h2:
+    console:
+      enabled: true
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/vehicle
+    username: postgres
+    password: password
+    driverClassName: org.postgresql.Driver
